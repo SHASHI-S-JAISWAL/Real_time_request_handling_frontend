@@ -19,7 +19,6 @@ export default class Signin extends Component {
         socket.emit('geUD','')
         let all ;
         socket.on('allUD',(data) => { all = data;
-            console.log(data);
         
         let  flag =0, u1='', d1='';
         for (let a of all){
@@ -29,9 +28,8 @@ export default class Signin extends Component {
                     u1 =a.name;
                     d1 =a.dept;}
         };
-        if(flag == 1 || flag ==0){
+        if(flag == 1 ){
             this.props.handler(u1,d1);
-            //<Route path ='/form'></Route>
         }
         else
         alert('login fail')
